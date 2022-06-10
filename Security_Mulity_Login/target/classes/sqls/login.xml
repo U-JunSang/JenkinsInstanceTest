@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.min.login">
+
+
+<select id="loginChk" parameterType="String" resultType="MDto">
+  SELECT PW, AUTH 
+	FROM SECURITY_LOGIN
+		WHERE ID = #{id}
+</select>
+
+<insert id="signUp" parameterType="MDto">
+INSERT INTO SECURITY_LOGIN
+(ID, PW, AUTH, NAME)
+VALUES(#{id}, #{pw}, 'ROLE_User', #{name})
+</insert>
+
+<!-- <select id="passwordChk" parameterType="java.lang.String" resultType="java.lang.String" > -->
+<!-- 	SELECT PW FROM SECURITY_LOGIN WHERE ID = #{id} -->
+<!-- </select> -->
+
+</mapper>
